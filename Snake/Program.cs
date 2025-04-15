@@ -10,21 +10,36 @@ namespace Snake//Название проекта
     {
         static void Main( string[] args)// void - ничего не возвращиает (нету return)
         {
-            Point p1 = new Point(1,3,'*');//Создание структуры с помощью вызова пустого конструктора
-            /*p1.x = 1;
-            p1.y = 3;
-            p1.sym = '*';*/
-            p1.Draw();//Вызавает класс Point функцию Draw
+            int desiredWidth = 80;
+            int desiredHeight = 25;
 
-            Point p2 = new Point(4, 5, '#');//Создание структуры с помощью вызова пустого конструктора
-            /*p2.x = 4;
-            p2.y = 5;
-            p2.sym = '#';*/
-            p2.Draw();//Вызавает класс Point функцию Draw
+            // Получаем текущий размер окна консоли
+            int windowWidth = Console.WindowWidth;
+            int windowHeight = Console.WindowHeigh;
 
-            HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
-            line.Drow();
-            Console.ReadLine();
+            // Убедимся, что буфер не меньше окна
+            int bufferWidth = Math.Max(desiredWidth, windowWidth);
+            int bufferHeight = Math.Max(desiredHeight, windowHeight);
+
+            // Проверим, что значения не превышают short.MaxValue
+            bufferWidth = Math.Min(bufferWidth, short.MaxValue - 1);
+            bufferHeight = Math.Min(bufferHeight, short.MaxValue - 1);
+
+            // Установим безопасно размер буфера
+            Console.SetBufferSize(bufferWidth, bufferHeight);
+
+
+            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
+            upLine.Drow();
+            downLine.Drow();
+            leftLine.Drow();
+            rightLine.Drow();
+
+            Point p = new Point(4, 5, '*');
+            p.Draw();
         }
     }
 }  

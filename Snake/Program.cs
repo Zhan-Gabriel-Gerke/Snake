@@ -22,27 +22,9 @@ namespace Snake//Название проекта
             p2.sym = '#';*/
             p2.Draw();//Вызавает класс Point функцию Draw
 
-            List<int> numList = new List<int>();//Создание списка
-            numList.Add(1);//Добавление значения в список
-            numList.Add(2);
-            numList.Add(3);
-            
-            int x = numList[0];//Присвоение значения из списка к переменной
-            int y = numList[1];
-            int z = numList[2];
-
-            foreach(int i in numList)// Цикл как for x in (list)
-            {
-                Console.WriteLine(i);//print
-            }
-
-            numList.RemoveAt(0); // Удаление из списка по индексу
-
-            List<Point> pList = new List<Point>();
-            pList.Add(p1);
-            pList.Add(p2);
-
+            HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
+            line.Drow();
             Console.ReadLine();
         }
     }
-} 
+}  

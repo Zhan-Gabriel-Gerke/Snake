@@ -10,24 +10,7 @@ namespace Snake//Название проекта
     {
         static void Main( string[] args)// void - ничего не возвращиает (нету return)
         {
-            int desiredWidth = 80;
-            int desiredHeight = 25;
-
-            // Получаем текущий размер окна консоли
-            int windowWidth = Console.WindowWidth;
-            int windowHeight = Console.WindowHeigh;
-
-            // Убедимся, что буфер не меньше окна
-            int bufferWidth = Math.Max(desiredWidth, windowWidth);
-            int bufferHeight = Math.Max(desiredHeight, windowHeight);
-
-            // Проверим, что значения не превышают short.MaxValue
-            bufferWidth = Math.Min(bufferWidth, short.MaxValue - 1);
-            bufferHeight = Math.Min(bufferHeight, short.MaxValue - 1);
-
-            // Установим безопасно размер буфера
-            Console.SetBufferSize(bufferWidth, bufferHeight);
-
+            Console.SetWindowSize(80, 25);
 
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
             HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');

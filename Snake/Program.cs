@@ -11,16 +11,19 @@ namespace Snake//Название проекта
     {
         static void Main( string[] args)// void - ничего не возвращиает (нету return)
         {
-            Point p1 = new Point(1,3,'*');//Создание структуры с помощью вызова пустого конструктора
-            p1.Draw();//Вызавает класс Point функцию Draw
+            Console.SetWindowSize(80, 25);
 
-            Point p2 = new Point(4, 5, '#');//Создание структуры с помощью вызова пустого конструктора
-            p2.Draw();//Вызавает класс Point функцию Draw
-            
-            HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
-            line.Drow();
+            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
+            upLine.Drow();
+            downLine.Drow();
+            leftLine.Drow();
+            rightLine.Drow();
 
-            Console.ReadLine();
+            Point p = new Point(4, 5, '*');
+            p.Draw();
         }
     }
 } 

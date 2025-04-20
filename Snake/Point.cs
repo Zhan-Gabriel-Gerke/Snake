@@ -42,6 +42,11 @@ namespace Snake
                 x = x - offset;
             }
         }
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
         public void Draw()//Draw - Просто название
         {
             Console.SetCursorPosition(x, y);//Устанавливает курсов по x & y

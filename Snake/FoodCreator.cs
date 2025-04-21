@@ -11,7 +11,7 @@ namespace Snake
     {
         int mapWidht;
         int mapHeight;
-        int sym;
+        char sym;
 
         Random random = new Random();
 

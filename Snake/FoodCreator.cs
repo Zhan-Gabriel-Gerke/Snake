@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class FoodCreator
+    class FoodCreator // Класс предназначен для создания еды на игровом поле.
     {
-        int mapWidht;
+        int mapWidht;//Размеры поля
         int mapHeight;
-        char sym;
+        char sym; //Символ для отображения еды
 
         Random random = new Random();
 
@@ -21,7 +21,7 @@ namespace Snake
             this.mapHeight = mapHeight;
             this.sym = sym;
         }
-            public Point CreateFood()
+            public Point CreateFood()//Создаёт еду в рандомном месте                     
         {
             int x = random.Next(2, mapWidht - 2);
             int y = random.Next(2, mapHeight - 2);

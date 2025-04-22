@@ -40,7 +40,35 @@ namespace Snake//Название проекта
                     snake.Move();
                 }
                 Thread.Sleep(100);
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                //Thread.Sleep(100);
+                //snake.Move();
             }
+            WriteGameOver();
+            Console.ReadLine();
+        }
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("G A M E  O V E R", xOffset + 1, yOffset++);
+            yOffset++;
+            WriteText("Author: Zhan :) Have a wounderfull day", xOffset + 2, yOffset++);
+            WriteText("Made Special for Marina", xOffset + 1, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+        }
+
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
         }
     }
 } 

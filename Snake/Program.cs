@@ -12,32 +12,32 @@ namespace Snake//Название проекта
         static void Main(string[] args)// void - ничего не возвращиает (нету return)
         {
             Console.SetWindowSize(width: 80, height: 25);
-
-            Walls walls = new Walls(80, 25);
+            Menu.ShowMenu();
+            /*Walls walls = new Walls(80, 25);
             walls.Draw();
 
-            Point p = new Point(4, 5, '*');
+            Point p = new Point(4, 5, '*');//Рисует змейку
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
-
+            
             FoodCreator foodCreator = new FoodCreator(80, 25, '$');
             Point food = foodCreator.CreateFood();
             food.Draw();
 
             while (true)
             {
-                if (walls.IsHit(snake) || snake.IsHitTail())
+                if (walls.IsHit(snake) || snake.IsHitTail())//Смерть
                 {
                     break;
                 }
-                if(snake.Eat(food))
+                if(snake.Eat(food))//кушает еду
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
                 }
                 else
                 {
-                    snake.Move();
+                    snake.Move();//Шевелится
                 }
                 Thread.Sleep(100);
                 if (Console.KeyAvailable)
@@ -68,7 +68,7 @@ namespace Snake//Название проекта
         static void WriteText(String text, int xOffset, int yOffset)
         {
             Console.SetCursorPosition(xOffset, yOffset);
-            Console.WriteLine(text);
+            Console.WriteLine(text);*/
         }
     }
 } 

@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Menu
+    public class Menu
     {
         private static string[] menuItems = { "PLAY", "TABLE SCORE", "SETTINGS", "EXIT" };
+        /*public static int musicvar { get; set; }
+        public static int level { get; set; }
+        public static int speed { get; set; }
+        static Settings()
+        {
+            musicvar = 1;
+            level = 1;
+            speed = 1;  
+        }*/
         public static void ShowMenu()
         {
-            Console.WriteLine("Menu");
-            Console.WriteLine("");
+            Console.Clear();
             int row = Console.CursorLeft;
             int col = Console.CursorTop;
             int index = 0;
@@ -33,12 +43,21 @@ namespace Snake
                     case ConsoleKey.Enter:
                         switch (index)
                         {
+                            case 0:
+                                Console.Clear();
+                                Program.StartGame();
+                                break;
+                            case 1:
+                                //ScoreTable
+                                break;
+                            case 2:
+                                Settings.SettingsStart();
+                                break;
                             case 3:
                                 Console.WriteLine("Bye");
                                 return;
                             default:
                                 Console.Clear();
-                                Console.WriteLine($"You chose {menuItems[index]}");
                                 break;
                         }
                         break;

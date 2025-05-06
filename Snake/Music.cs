@@ -1,35 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Media;
 using System.Threading.Tasks;
-using System.Media; // for music
+
 namespace Snake
 {
-        class Music
+    class Music
+    {
+        public static void PlayEatSound()
         {
-            public static void PlayEatSound()
+            // Запуск воспроизведения звука в отдельном потоке
+            Task.Run(() =>
             {
                 using (SoundPlayer player = new SoundPlayer(@"C:\Users\zange\source\repos\Snake\Snake\Sounds\eat.wav"))
                 {
-                    
-                player.Play();
+                    player.Play();
                 }
-            }
+            });
+        }
 
-            public static void PlayGameOverSound()
+        public static void PlayGameOverSound()
+        {
+            Task.Run(() =>
             {
                 using (SoundPlayer player = new SoundPlayer(@"C:\Users\zange\source\repos\Snake\Snake\Sounds\gameover.wav"))
                 {
                     player.Play();
                 }
-            }
-            public static void PlayStartSound()
+            });
+        }
+
+        public static void PlayStartSound()
+        {
+            Task.Run(() =>
             {
                 using (SoundPlayer player = new SoundPlayer(@"C:\Users\zange\source\repos\Snake\Snake\Sounds\main.wav"))
                 {
                     player.Play();
                 }
-            }
+            });
         }
+    }
 }

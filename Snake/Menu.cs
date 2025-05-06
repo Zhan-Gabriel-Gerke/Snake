@@ -6,7 +6,7 @@
 
         public static void ShowMenu()
         {
-            (bool musicOn, int difficultyIndex, int speed) settingsTuple = Settings.SettingsStart();
+            (bool musicOn, int difficultyIndex, string color) settingsTuple = Settings.SettingsStart();
             Console.Clear();
             int row = Console.CursorLeft;
             int col = Console.CursorTop;
@@ -32,7 +32,7 @@
                                 Program.StartGame(settingsTuple); // Передаем settingsTuple
                                 break;
                             case 1:
-                                // ScoreTable
+                                FileReader.ReadFileAndPrintTable();
                                 break;
                             case 2:
                                 settingsTuple = Settings.SettingsStart(); // теперь возвращает такой же value tuple

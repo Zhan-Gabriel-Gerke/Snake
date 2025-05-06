@@ -4,20 +4,21 @@ namespace Snake
 {
     class Settings
     {
-        public static (bool musicOn, int difficultyIndex, int speed) SettingsStart()
+        public static (bool musicOn, int difficultyIndex, string color) SettingsStart()
         {
             string[] menuItems = new string[]
             {
                 "Level: Easy",
                 "Music: ON",
-                "Speed: 5",
+                "Path Color: Black",
                 "Exit"
             };
 
             string[] difficulties = { "Easy", "Medium", "Hard" };
+            string[] colors = { "Black", "Blue", "Green" };
             int difficultyIndex = 0;
             bool musicOn = true;
-            int speed = 5;
+            int colorsIndex = 0;
 
             Console.WriteLine("Settings");
             Console.WriteLine();
@@ -52,8 +53,8 @@ namespace Snake
                                 menuItems[1] = $"Music: {(musicOn ? "ON" : "OFF")}";
                                 break;
                             case 2:
-                                if (speed > 1) speed--;
-                                menuItems[2] = $"Speed: {speed}";
+                                if (colorsIndex > 0) colorsIndex--;
+                                menuItems[2] = $"Path Color: {colors[colorsIndex]}";
                                 break;
                         }
                         break;
@@ -69,8 +70,8 @@ namespace Snake
                                 menuItems[1] = $"Music: {(musicOn ? "ON" : "OFF")}";
                                 break;
                             case 2:
-                                if (speed < 10) speed++;
-                                menuItems[2] = $"Speed: {speed}";
+                                if (colorsIndex < colors.Length-1) colorsIndex++;
+                                menuItems[2] = $"Path Color: {colors[colorsIndex]}";
                                 break;
                         }
                         break;
@@ -78,7 +79,7 @@ namespace Snake
                         if (index == 3)
                         {
                             Console.Clear();
-                            return (musicOn, difficultyIndex, speed);
+                            return (musicOn, difficultyIndex, colors[colorsIndex]);
                         }
                         break;
                 }

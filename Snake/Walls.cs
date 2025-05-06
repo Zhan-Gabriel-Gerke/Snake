@@ -44,40 +44,39 @@ namespace Snake
         }
         public void DrawObstacles(int difficultyIndex)
         {
-            if (difficultyIndex == 2)
+            // Ограничение по краям экрана (общая рамка для всех уровней)
+            HorizontalLine edgeTop = new HorizontalLine(0, 79, 0, '#');
+            //HorizontalLine edgeBottom = new HorizontalLine(0, 79, 24, '#');
+            VerticalLine edgeLeft = new VerticalLine(0, 10, 0, '#');
+            VerticalLine edgeRight = new VerticalLine(0, 6, 79, '#');
+
+            wallList.Add(edgeTop);
+            //wallList.Add(edgeBottom);
+            wallList.Add(edgeLeft);
+            wallList.Add(edgeRight);
+
+            if (difficultyIndex == 1)
             {
-                // Горизонтальная линия, разделяющая экран на две части
-                HorizontalLine line1 = new HorizontalLine(5, 75, 8, '#');
-                HorizontalLine line2 = new HorizontalLine(5, 75, 16, '#');
-                wallList.Add(line1);
-                wallList.Add(line2);
+                // Усложняем уровень с помощью нескольких линий
+                // Одна горизонтальная линия по центру
+                HorizontalLine midLine = new HorizontalLine(20, 59, 12, '#');
+                wallList.Add(midLine);
 
-                // Вертикальные стены, создающие дорожки
-                VerticalLine vertical1 = new VerticalLine(9, 15, 20, '#');
-                VerticalLine vertical2 = new VerticalLine(9, 15, 60, '#');
-                wallList.Add(vertical1);
-                wallList.Add(vertical2);
-                
-                // Маленькие горизонтальные преграды
-                HorizontalLine smallLine1 = new HorizontalLine(30, 40, 5, '#');
-                HorizontalLine smallLine2 = new HorizontalLine(40, 50, 12, '#');
-                wallList.Add(smallLine1);
-                wallList.Add(smallLine2);
-
-                // Ограничение по краям экрана (рамка)
-                HorizontalLine edgeTop = new HorizontalLine(0, 79, 0, '#');
-                HorizontalLine edgeBottom = new HorizontalLine(0, 79, 24, '#');
-                wallList.Add(edgeTop);
-                wallList.Add(edgeBottom);
-
-                VerticalLine edgeLeft = new VerticalLine(0, 24, 0, '#');
-                VerticalLine edgeRight = new VerticalLine(0, 24, 79, '#');
-                wallList.Add(edgeLeft);
-                wallList.Add(edgeRight);
+                // Добавляем вертикальные линии, чтобы пересекались с горизонтальными
+                VerticalLine midVertical1 = new VerticalLine(5, 20, 30, '#');
+                wallList.Add(midVertical1);
+            }
+            else if (difficultyIndex == 2)
+            {
+                HorizontalLine midLine = new HorizontalLine(20, 59, 12, '#');
+                VerticalLine midVertical = new VerticalLine(5, 20, 40, '#');
+                wallList.Add(midLine);
+                wallList.Add(midVertical);
             }
 
             Draw();
         }
+
 
 
     }

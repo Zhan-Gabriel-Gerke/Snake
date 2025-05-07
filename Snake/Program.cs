@@ -88,7 +88,6 @@ namespace Snake
             WriteGameOver(finalScore);
             Console.ReadLine();
         }
-
         static void WriteGameOver(int score)
         {
             Console.Clear();
